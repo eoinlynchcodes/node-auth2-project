@@ -1,8 +1,21 @@
-require('dotenv').config()
+const express = require('express');
+const helmet = require('helmet');
+const cors = require('cors');
 
-const server = require('./api/server');
+// const authRouter = require('../auth/auth-router');
+// const usersRouter = require('../users/users-router.js');
 
-const port = process.env.PORT || 5000;
-server.listen(port, () => {
-    console.log(`The server is listening on port number ${port}`)
-})
+const server = express();
+
+server.use(helmet());
+server.use(express.json());
+server.use(cors());
+
+// server.use('/api/users-router', usersRouter);
+// server.user('/api/auth-router', authRouter);
+
+server.get('/', (req,res) => {
+    res.send('The home path works!');
+});
+
+module.exports = server;
