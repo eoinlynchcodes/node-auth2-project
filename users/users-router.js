@@ -10,5 +10,7 @@ router.get('/', restricted, (req, res) => {
     })
     .catch(error => {
         res.send(error);
-    })
-})
+    });
+});
+
+module.exports = router;
