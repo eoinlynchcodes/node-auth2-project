@@ -14,7 +14,7 @@ server.use(cors());
 server.use('/api/auth', authRouter);
 server.use('/api/users', usersRouter);
 
-server.get('/', (req,res) => {
+server.get('/test', (req,res) => {
     res.send('The home path works!');
 });
 

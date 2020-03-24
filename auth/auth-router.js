@@ -18,6 +18,14 @@ router.post('/register', (req, res) => {
     });
 });
 
+router.get('/users', (req, res) => {
+  console.log('In auth-router...');
+  Users.find()
+  .then(user => {
+    if(user)
+  })
+})
+
 router.post('/login', (req, res) => {
   let { username, password } = req.body;
 
@@ -56,5 +64,9 @@ router.post('/login', (req, res) => {
       res.status(500).json(error);
     });
 });
+
+// function tokenGenerator(user){
+//   const payload 
+// }
 
 module.exports = router;
