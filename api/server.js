@@ -2,7 +2,7 @@ const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
 
-// const authRouter = require('../auth/auth-router');
+const authRouter = require('../auth/auth-router');
 // const usersRouter = require('../users/users-router.js');
 
 const server = express();
@@ -11,8 +11,8 @@ server.use(helmet());
 server.use(express.json());
 server.use(cors());
 
+server.use('/api/auth', authRouter);
 // server.use('/api/users-router', usersRouter);
-// server.user('/api/auth-router', authRouter);
 
 server.get('/', (req,res) => {
     res.send('The home path works!');
